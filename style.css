@@ -7,3 +7,6 @@ body {
 #canvasImage {
   display: none;
 }
+#canvas {
+  transform: rotateY('180deg');
+}
