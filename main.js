@@ -13,10 +13,10 @@ let lastVideoTime = -1;
 let results = undefined;
 let runningMode = "IMAGE";
 
-const btnLabels = {
-  start: 'Start Cam',
-  stop: 'Stop Predicting'
-}
+// const btnLabels = {
+//   start: 'Start Cam',
+//   stop: 'Stop Predicting'
+// }
 
 async function createHandLandmarker() {
   const vision = await FilesetResolver.forVisionTasks(
@@ -40,26 +40,22 @@ if (!!navigator.mediaDevices?.getUserMedia){
 }
 
 function enableCam(e) {
-  //Wait if finish loading (CDN)
+  
   wait.style.display = 'flex'
   if (!handLandmarker) {
     
     alert('Error: handlandarker was not loaded!');
+    wait.style.display = 'none';
     return;
-  }
-  if (startWebcamBtn.innerText === btnLabels.start){
-   startWebcamBtn.innerText = btnLabels.stop; 
-  } else {
-    startWebcamBtn.innerText = btnLabels.start;
   }
   navigator.mediaDevices.getUserMedia({video: true}).then(stream => {
     video.srcObject = stream;
     video.addEventListener('loadeddata', predictWebcam)
   });
+  startWebcamBtn.disabled = true;
 }
 
 async function predictWebcam() {
-  //todo add a loading - please wait prompt
   wait.style.display = 'none';
   canvas.style.width = video.videoWidth;
   canvas.style.height = video.videoHeight;

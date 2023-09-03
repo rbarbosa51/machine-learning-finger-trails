@@ -3,23 +3,24 @@
   padding: 0;
 }
 body {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   height: 100vh;
+  align-items: center;
+  text-align: center;
 }
 #canvasImage {
   display: none;
 }
-/* #canvas {
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-} */
+
 .innerContainer {
   position: relative;
+  margin-top: 2rem;
+  
+  
 }
 #webcam {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   z-index: 1;
@@ -27,11 +28,11 @@ body {
 #canvas {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
 }
 .wait {
-  
   position: absolute;
   justify-content: center;
   align-items: center;
