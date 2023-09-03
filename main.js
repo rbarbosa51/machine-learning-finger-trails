@@ -1,4 +1,5 @@
 import {HandLandmarker, FilesetResolver} from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0";
+import Heart from "./Heart.js";
 
 const video = document.getElementById("webcam") ;
 const image = document.getElementById('canvasImage');
@@ -13,10 +14,7 @@ let lastVideoTime = -1;
 let results = undefined;
 let runningMode = "IMAGE";
 
-// const btnLabels = {
-//   start: 'Start Cam',
-//   stop: 'Stop Predicting'
-// }
+
 
 async function createHandLandmarker() {
   const vision = await FilesetResolver.forVisionTasks(
@@ -92,29 +90,5 @@ async function predictWebcam() {
     }
   }
   ctx.restore();
-  
   requestAnimationFrame(predictWebcam);
-
-  
-}
-
-class Heart {
-  constructor(canvas, ctx, image, x, y) {
-    this.canvas = canvas;
-    this.image = image;
-    this.ctx = ctx;
-    this.x = x;
-    this.y = y;
-  }
-  draw(alpha) {
-    this.ctx.save();
-    this.ctx.globalAlpha = alpha;
-    this.ctx.translate(this.x * this.canvas.width, this.y * this.canvas.height);
-    this.ctx.scale(2,2);
-    //const centerX = 16 / 2;
-    //const centerY = 10 / 2;
-    this.ctx.drawImage(image, -8, -5, 16, 10);
-    this.ctx.restore();
-  }
-  
 }
