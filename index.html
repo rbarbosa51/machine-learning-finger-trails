@@ -1,36 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MediaPipe Index Finger Trail</title>
-  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
-  <script type="module" src="/main.js"></script>
-</head>
-<body>
-  <h1>Index Finger Heart trail</h1>
-  <h2>Google's MediaPipe Handlandmark detection demo</h2>
-  <p class="instructions">Greetings! This machine learning demo allows you to visualize Geoogle's Mediapipe Handlandmark detection solution.
-    You need to authorize the camera before you can use. <strong>Click the start button</strong>, then <strong> your index finger(s) around the screen </strong> to see a trail of hearts follow your finger. You will also see the predictive placement of your fingers.
-    Close your fist! Wave both hands open! <strong> Have fun!</strong>
-    
-  </p>
-  
-  <button id="startWebcamBtn" class="mdc-button mdc-button--raised">Start Cam</button>
-  <div id="container">
-    
-    <div class="innerContainer">
-      <video id="webcam" autoplay playinline></video>
-      <canvas id="canvas"></canvas>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediaPipe Index Finger Trail</title>
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"
+      crossorigin="anonymous"
+    ></script>
+    <script type="module" src="/main.js"></script>
+  </head>
+  <body>
+    <h1>Index Finger Heart trail</h1>
+    <h2>Google's MediaPipe Handlandmark detection demo</h2>
+    <p class="instructions">
+      Greetings! This machine learning demo allows you to visualize Geoogle's
+      Mediapipe Handlandmark detection solution. You need to authorize the
+      camera before you can use. <strong>Click the start button</strong>, then
+      <strong> your index finger(s) around the screen </strong> to see a trail
+      of hearts follow your finger. You will also see the predictive placement
+      of your fingers. Close your fist! Wave both hands open!
+      <strong> Have fun!</strong>
+    </p>
+
+    <button id="startWebcamBtn" class="mdc-button mdc-button--raised">
+      Start Cam
+    </button>
+    <div id="container">
+      <div class="innerContainer">
+        <video id="webcam" autoplay playinline></video>
+        <canvas id="canvas"></canvas>
+      </div>
     </div>
-  </div>
-  <img src="/heart32x24.png" width="32" height="24" id="canvasImage">
-  <div id='wait' class="wait" style="display: none">
-    <h2>Please wait...</h2>
-  </div>
-</body>
+    <img src="/heart32x24.png" width="32" height="24" id="canvasImage" />
+    <div id="wait" class="wait" style="display: none">
+      <h2>Please wait...</h2>
+    </div>
+  </body>
 </html>

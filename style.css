@@ -1,17 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
 @use "@material";
 
 body {
   min-height: 100vh;
   align-items: center;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #3d3d3d;
   background-color: #f1f3f4;
   --mdc-theme-primary: #007f8b;
   --mdc-theme-on-primary: #f1f3f4;
 }
-h1, h2 {
+h1,
+h2 {
   color: #007f8b;
 }
 #canvasImage {
@@ -51,7 +52,7 @@ h1, h2 {
   width: 35%;
   height: 40%;
   top: 50%;
-  left: 50%;;
+  left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.6rem;
 }
