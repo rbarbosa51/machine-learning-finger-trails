@@ -30,3 +30,17 @@ body {
   left: 0;
   z-index: 2;
 }
+.wait {
+  
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 0.8rem;
+  width: 35%;
+  height: 40%;
+  top: 50%;
+  left: 50%;;
+  transform: translate(-50%, -50%);
+  font-size: 1.6rem;
+}

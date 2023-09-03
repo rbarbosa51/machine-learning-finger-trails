@@ -3,6 +3,7 @@ import {HandLandmarker, FilesetResolver} from "https://cdn.jsdelivr.net/npm/@med
 const video = document.getElementById("webcam") ;
 const image = document.getElementById('canvasImage');
 const canvas = document.getElementById('canvas');
+const wait = document.getElementById('wait')
 const ctx = canvas.getContext('2d');
 const startWebcamBtn = document.getElementById('startWebcamBtn');
 let handLandmarker = null;
@@ -40,8 +41,10 @@ if (!!navigator.mediaDevices?.getUserMedia){
 
 function enableCam(e) {
   //Wait if finish loading (CDN)
+  wait.style.display = 'flex'
   if (!handLandmarker) {
-    //wait load not completed
+    
+    alert('Error: handlandarker was not loaded!');
     return;
   }
   if (startWebcamBtn.innerText === btnLabels.start){
@@ -57,6 +60,7 @@ function enableCam(e) {
 
 async function predictWebcam() {
   //todo add a loading - please wait prompt
+  wait.style.display = 'none';
   canvas.style.width = video.videoWidth;
   canvas.style.height = video.videoHeight;
   canvas.width = video.videoWidth;
@@ -92,9 +96,7 @@ async function predictWebcam() {
     }
   }
   ctx.restore();
-  // if (webcamRunning === true){
-  //   requestAnimationFrame(predictWebcam);
-  // }
+  
   requestAnimationFrame(predictWebcam);
 
   
