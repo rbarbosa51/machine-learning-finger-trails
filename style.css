@@ -1,4 +1,7 @@
-
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   display: flex;
   flex-direction: column;
@@ -7,6 +10,23 @@ body {
 #canvasImage {
   display: none;
 }
+/* #canvas {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+} */
+.innerContainer {
+  position: relative;
+}
+#webcam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
 #canvas {
-  transform: rotateY('180deg');
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }

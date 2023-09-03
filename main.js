@@ -57,5 +57,66 @@ function enableCam(e) {
 
 async function predictWebcam() {
   //todo add a loading - please wait prompt
+  canvas.style.width = video.videoWidth;
+  canvas.style.height = video.videoHeight;
+  canvas.width = video.videoWidth;
+  canvas.height = video.videoHeight;
+  if (runningMode === 'IMAGE') {
+    runningMode = 'VIDEO';
+    await handLandmarker.setOptions({runningMode: 'VIDEO'});
+  }
+  const startTime = performance.now();
+  if (lastVideoTime !== video.currentTime) {
+    lastVideoTime = video.currentTime;
+    results = handLandmarker.detectForVideo(video, startTime);
+  }
+  ctx.save()
+  ctx.clearRect(0,0,canvas.width, canvas.height);
+  if (results.landmarks) {
+    for (const landmarks of results.landmarks) {
+      drawConnectors(ctx, landmarks, HAND_CONNECTIONS, {
+        color: '#00FF00',
+        lineWidth: 5
+      });
+      const x = landmarks[8].x;
+      const y = landmarks[8].y;
+      if (heartArray.length > maxHearts) {
+        heartArray.pop();
+      }
+      const heart = new Heart(canvas, ctx, image, x, y);
+      heartArray.unshift(heart);
+      heartArray.forEach((heart, i) => {
+        heart.draw(1 - (i / maxHearts));
+      })
 
+    }
+  }
+  ctx.restore();
+  // if (webcamRunning === true){
+  //   requestAnimationFrame(predictWebcam);
+  // }
+  requestAnimationFrame(predictWebcam);
+
+  
+}
+
+class Heart {
+  constructor(canvas, ctx, image, x, y) {
+    this.canvas = canvas;
+    this.image = image;
+    this.ctx = ctx;
+    this.x = x;
+    this.y = y;
+  }
+  draw(alpha) {
+    this.ctx.save();
+    this.ctx.globalAlpha = alpha;
+    this.ctx.translate(this.x * this.canvas.width, this.y * this.canvas.height);
+    this.ctx.scale(2,2);
+    //const centerX = 16 / 2;
+    //const centerY = 10 / 2;
+    this.ctx.drawImage(image, -8, -5, 16, 10);
+    this.ctx.restore();
+  }
+  
 }
