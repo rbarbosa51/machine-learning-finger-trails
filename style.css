@@ -1,25 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 @use "@material";
-* {
-  margin: 0;
-  padding: 0;
-}
+
 body {
-  /* display: flex;
-  flex-direction: column; */
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #3d3d3d;
+  background-color: #f1f3f4;
+  --mdc-theme-primary: #007f8b;
+  --mdc-theme-on-primary: #f1f3f4;
+}
+h1, h2 {
+  color: #007f8b;
 }
 #canvasImage {
   display: none;
 }
-
+.instructions {
+  width: 60%;
+  text-align: justify;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
 .innerContainer {
   position: relative;
   margin-top: 2rem;
-  
-  
 }
 #webcam {
   position: relative;
@@ -38,6 +45,7 @@ body {
   position: absolute;
   justify-content: center;
   align-items: center;
+  background-color: #f1f3f4;
   border: 1px solid black;
   border-radius: 0.8rem;
   width: 35%;

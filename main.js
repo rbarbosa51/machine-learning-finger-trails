@@ -42,7 +42,7 @@ function enableCam(e) {
   wait.style.display = 'flex'
   if (!handLandmarker) {
     
-    alert('Error: handlandarker was not loaded!');
+    alert('Error: handlandarker was not loaded! Please try again in a few seconds');
     wait.style.display = 'none';
     return;
   }
@@ -73,7 +73,7 @@ async function predictWebcam() {
   if (results.landmarks) {
     for (const landmarks of results.landmarks) {
       drawConnectors(ctx, landmarks, HAND_CONNECTIONS, {
-        color: '#00FF00',
+        color: '#007f8b',
         lineWidth: 5
       });
       const x = landmarks[8].x;
