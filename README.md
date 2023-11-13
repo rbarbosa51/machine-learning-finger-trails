@@ -4,7 +4,7 @@
 
 ## Description
 
-This page is an example of Google's Mediapipe Solutions. The library is bult on top of TensorFlow Lite. It uses the hand landmark detection features to create a trail of hearts around the index finger. Pleas view the Github Pages for this program
+This page is an example of Google's Mediapipe Solutions. The library is bult on top of TensorFlow Lite. It uses the hand landmark detection features to create a trail of hearts around the index finger. 
 
 ## Table of Contents
 
